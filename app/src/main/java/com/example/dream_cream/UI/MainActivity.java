@@ -38,6 +38,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -70,8 +71,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mAuth = FirebaseAuth.getInstance();
         CurrentUser = mAuth.getCurrentUser();
-         Uid = CurrentUser.getUid();
-         user=FirebaseAuth.getInstance().getCurrentUser();
+        Uid = CurrentUser.getUid();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         navigationView = findViewById(R.id.navegation_view);
         navigationView.setNavigationItemSelectedListener(this);
         mnavigationview = navigationView.getHeaderView(0);
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onStart();
 
         //Retrieve Header View User Data
-       Navigation_view_header_data();
+        Navigation_view_header_data();
 
         //Retrieve Favourites
         Retrieve_fav();
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     com.example.dream_cream.UI.user my_user = new com.example.dream_cream.UI.user();
                     my_user = ds.getValue(com.example.dream_cream.UI.user.class);
                     my_user.setCategory(ds.getKey().toString());
-                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false,my_user.getExpired()));
+                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false, my_user.getExpired()));
                 }
                 gv.setAdapter(my_adapter);
             }
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-                intent.putExtra("Category Name","Cakes");
+                intent.putExtra("Category Name", "Cakes");
                 startActivity(intent);
             }
         });
@@ -207,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     com.example.dream_cream.UI.user my_user = new com.example.dream_cream.UI.user();
                     my_user = ds.getValue(com.example.dream_cream.UI.user.class);
                     my_user.setCategory(ds.getKey().toString());
-                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false,my_user.getExpired()));
+                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false, my_user.getExpired()));
                 }
                 gv.setAdapter(my_adapter);
             }
@@ -222,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-                intent.putExtra("Category Name","Cookies");
+                intent.putExtra("Category Name", "Cookies");
                 startActivity(intent);
             }
         });
@@ -247,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     com.example.dream_cream.UI.user my_user = new com.example.dream_cream.UI.user();
                     my_user = ds.getValue(com.example.dream_cream.UI.user.class);
                     my_user.setCategory(ds.getKey().toString());
-                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false,my_user.getExpired()));
+                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false, my_user.getExpired()));
                 }
                 gv.setAdapter(my_adapter);
             }
@@ -262,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-                intent.putExtra("Category Name","Breads");
+                intent.putExtra("Category Name", "Breads");
                 startActivity(intent);
             }
         });
@@ -288,7 +289,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     com.example.dream_cream.UI.user my_user = new com.example.dream_cream.UI.user();
                     my_user = ds.getValue(com.example.dream_cream.UI.user.class);
                     my_user.setCategory(ds.getKey().toString());
-                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(),my_user.getPrice(), false,my_user.getExpired()));
+                    lastmodels.add(new com.example.dream_cream.UI.HorizontalProductModel(my_user.getImage(), my_user.getCategory(), my_user.getPrice(), false, my_user.getExpired()));
                 }
                 gv.setAdapter(my_adapter);
             }
@@ -303,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-                intent.putExtra("Category Name","Muffins");
+                intent.putExtra("Category Name", "Muffins");
                 startActivity(intent);
             }
         });
@@ -350,52 +351,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.Profile) {
 
 
-                startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, UserProfileActivity.class));
+            startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, UserProfileActivity.class));
 
 
-        }
-        else if(id == R.id.favourites){
+        } else if (id == R.id.favourites) {
 
-                startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.favourites_activity.class));
+            startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.favourites_activity.class));
 
-        }
-        else if(id == R.id.Cart){
-              startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CartActivity.class));
+        } else if (id == R.id.Cart) {
+            startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CartActivity.class));
 
-        }
-        else if(id == R.id.MyOrders){
-               startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.OrderActivity.class));
+        } else if (id == R.id.MyOrders) {
+            startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.OrderActivity.class));
 
-        }
-        else if(id == R.id.Support){
+        } else if (id == R.id.Support) {
             startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, SupportActivity.class));
-        }
-        else if(id==R.id.fruits){
-            Intent intent =new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-            intent.putExtra("Category Name","Cookies");
+        } else if (id == R.id.fruits) {
+            Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
+            intent.putExtra("Category Name", "Cookies");
             startActivity(intent);
-        }
-        else if(id==R.id.vegetables){
-            Intent intent =new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-            intent.putExtra("Category Name","Muffins");
+        } else if (id == R.id.vegetables) {
+            Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
+            intent.putExtra("Category Name", "Muffins");
             startActivity(intent);
-        }
-        else if(id==R.id.meats){
-            Intent intent =new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-            intent.putExtra("Category Name","Breads");
+        } else if (id == R.id.meats) {
+            Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
+            intent.putExtra("Category Name", "Breads");
             startActivity(intent);
-        }
-        else if(id==R.id.electronics){
-            Intent intent =new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
-            intent.putExtra("Category Name","Cakes");
+        } else if (id == R.id.electronics) {
+            Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CategoryActivity.class);
+            intent.putExtra("Category Name", "Cakes");
             startActivity(intent);
-        }
-        else if (id == R.id.Logout) {
-            if(user != null) {
+        } else if (id == R.id.Logout) {
+            if (user != null) {
                 CheckLogout();
-            }
-            else {
-                Toast.makeText(this,"please login first",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "please login first", Toast.LENGTH_SHORT).show();
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -403,14 +394,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    private void CheckLogout(){
+    private void CheckLogout() {
         AlertDialog.Builder checkAlert = new AlertDialog.Builder(com.example.dream_cream.UI.MainActivity.this);
         checkAlert.setMessage("Do you want to Logout?")
                 .setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent=new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.loginActivity.class);
+                Intent intent = new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.loginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -435,27 +426,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void Navigation_view_header_data() {
 
-            DatabaseReference root = FirebaseDatabase.getInstance().getReference();
-            DatabaseReference m = root.child("users").child(Uid);
-            ValueEventListener eventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        name = dataSnapshot.child("Name").getValue().toString();
-                        photo = dataSnapshot.child("Image").getValue().toString();
-                        if (photo.equals("default")) {
-                            Picasso.get().load(R.drawable.profile).into(image);
-                        } else
-                            Picasso.get().load(photo).placeholder(R.drawable.profile).into(image);
-                        mperson_name.setText(name);
-                    }
+        DatabaseReference root = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference m = root.child("users").child(Uid);
+        ValueEventListener eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    name = dataSnapshot.child("Name").getValue().toString();
+                    photo = dataSnapshot.child("Image").getValue().toString();
+                    if (photo.equals("default")) {
+                        Picasso.get().load(R.drawable.profile).into(image);
+                    } else
+                        Picasso.get().load(photo).placeholder(R.drawable.profile).into(image);
+                    mperson_name.setText(name);
                 }
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            };
-            m.addListenerForSingleValueEvent(eventListener);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        };
+        m.addListenerForSingleValueEvent(eventListener);
 
     }
 
@@ -463,56 +454,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void showCartIcon() {
         //toolbar & cartIcon
 
-            ActionBar actionBar = getSupportActionBar();
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowCustomEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowCustomEnabled(true);
 
-            LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.main2_toolbar, null);
-            actionBar.setCustomView(view);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.main2_toolbar, null);
+        actionBar.setCustomView(view);
 
-            //************custom action items xml**********************
-            CustomCartContainer = (RelativeLayout) findViewById(R.id.CustomCartIconContainer);
-            PageTitle = (TextView) findViewById(R.id.PageTitle);
-            CustomCartNumber = (TextView) findViewById(R.id.CustomCartNumber);
+        //************custom action items xml**********************
+        CustomCartContainer = (RelativeLayout) findViewById(R.id.CustomCartIconContainer);
+        PageTitle = (TextView) findViewById(R.id.PageTitle);
+        CustomCartNumber = (TextView) findViewById(R.id.CustomCartNumber);
 
-            PageTitle.setText("Dream_Cream");
-            setNumberOfItemsInCartIcon();
+        PageTitle.setText("Dream_Cream");
+        setNumberOfItemsInCartIcon();
 
-            CustomCartContainer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CartActivity.class));
-                }
-            });
-
+        CustomCartContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(com.example.dream_cream.UI.MainActivity.this, com.example.dream_cream.UI.CartActivity.class));
+            }
+        });
 
 
     }
 
 
-    private void setNumberOfItemsInCartIcon(){
+    private void setNumberOfItemsInCartIcon() {
         DatabaseReference root = FirebaseDatabase.getInstance().getReference();
         DatabaseReference m = root.child("cart").child(Uid);
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    if(dataSnapshot.getChildrenCount()==1){
+                    if (dataSnapshot.getChildrenCount() == 1) {
                         CustomCartNumber.setVisibility(View.GONE);
-                    }
-                    else {
+                    } else {
                         CustomCartNumber.setVisibility(View.VISIBLE);
-                        CustomCartNumber.setText(String.valueOf(dataSnapshot.getChildrenCount()-1));
+                        CustomCartNumber.setText(String.valueOf(dataSnapshot.getChildrenCount() - 1));
                     }
-                }
-                else{
+                } else {
                     CustomCartNumber.setVisibility(View.GONE);
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {}
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
         };
         m.addListenerForSingleValueEvent(eventListener);
     }
@@ -536,8 +525,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             };
             m.addListenerForSingleValueEvent(eventListener);
 
-        }
-        else {
+        } else {
             Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
         }
     }
